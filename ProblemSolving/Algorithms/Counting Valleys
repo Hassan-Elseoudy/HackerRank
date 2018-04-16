@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class CountingValleys {
+
+	static int countingValleys(String s) {
+		int count = 0, level = 0;
+		boolean test = false;
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == 'U')
+				level++;
+			else
+				level--;
+			if (level < 0) {
+				test = true;
+			}
+			if (level == 0 && test == true) {
+				count++;
+				test = false;
+			}
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		String s = in.next();
+		int result = countingValleys(s);
+		System.out.println(result);
+		in.close();
+	}
+}
