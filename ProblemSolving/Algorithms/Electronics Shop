@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Solution {
+	static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+		int moneySpent = -1;
+		Arrays.sort(keyboards);
+		Arrays.sort(drives);
+		for (int i = 0; i < keyboards.length; i++) {
+			for (int j = 0; j < drives.length; j++) {
+				if (keyboards[i] + drives[j] > moneySpent && keyboards[i] + drives[j] <= b)
+					moneySpent = keyboards[i] + drives[j];
+			}
+		}
+		return moneySpent;
+	}
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int budget = s.nextInt();
+		int keyboard = s.nextInt();
+		int driver = s.nextInt();
+		int arKeyboard[] = new int[keyboard];
+		int arDriver[] = new int[driver];
+		for (int i = 0; i < keyboard; i ++)
+			arKeyboard[i] = s.nextInt();
+		for (int i = 0; i < driver; i ++)
+			arDriver[i] = s.nextInt();
+
+		s.close();
+		System.out.println(getMoneySpent(arKeyboard, arDriver, budget));
+
+	}
+
+}
