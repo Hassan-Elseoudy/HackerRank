@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int firstSol, secondSol;
+		int pageNum = s.nextInt();
+		int pageRequired = s.nextInt();
+		if ((pageRequired == pageNum - 1) && pageNum % 2 == 0)
+			secondSol = 1;
+		else
+			secondSol = Math.abs(pageNum - pageRequired) / 2;
+		if (pageRequired % 2 == 0)
+			firstSol = (pageRequired / 2);
+		else
+			firstSol = ((pageRequired - 1) / 2);
+		System.out.println(Math.min(firstSol, secondSol));
+		s.close();
+	}
+}
