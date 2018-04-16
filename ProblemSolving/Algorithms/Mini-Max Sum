@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static void miniMaxSum(long[] arr) {
+        Arrays.sort(arr);
+        long x = arr[0]+arr[1]+arr[2]+arr[3];
+        long y = arr[1]+arr[2]+arr[3]+arr[4];
+        System.out.println((x +" "+y));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long [] arr = new long[5];
+        for(int arr_i = 0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextLong();
+        }
+        miniMaxSum(arr);
+        in.close();
+    }
+}
